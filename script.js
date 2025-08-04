@@ -102,6 +102,7 @@ let playRound = (humanChoice, computerChoice) => {
                     computerScore += 1;
                     computerCounter.textContent = computerScore;
                 } else {
+                    roundInfo.textContent = 'Paper beats Rock';
                     info.textContent = `You won this round`;
                     humanScore += 1;
                     playerCounter.textContent = humanScore;
@@ -113,6 +114,7 @@ let playRound = (humanChoice, computerChoice) => {
                     computerScore += 1;
                     computerCounter.textContent = computerScore;
                 } else {
+                    roundInfo.textContent = 'Scissor beats Paper';
                     info.textContent = `You won this round`;
                     humanScore += 1;
                     playerCounter.textContent = humanScore;
