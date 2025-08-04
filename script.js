@@ -77,18 +77,8 @@ option.forEach(button => {
     let maxScore = 5;
 
 
+
 let playRound = (humanChoice, computerChoice) => {
-    if(humanScore === maxScore || computerScore === maxScore) {
-        if(humanScore > computerScore) {
-            para.textContent = 'You has won'
-            modal.style.cssText = 'background-color: rgba(89, 202, 37, 0.384)'
-        }else {
-            para.textContent = 'Computer has won'
-            modal.style.cssText = 'background-color: rgba(202, 62, 37, 0.384)'
-        }
-        openModal();
-        
-    }else {
         if (humanChoice === computerChoice){
             roundInfo.textContent = '';
             info.textContent = `It's a Tie`
@@ -129,34 +119,45 @@ let playRound = (humanChoice, computerChoice) => {
                 }
             }
         }
+        checkRound();
     }
         
-}
+// }
+
+let checkRound = () => {
+        if(humanScore == maxScore) {
+            para.textContent = 'You has won'
+            modal.style.cssText = 'background-color: rgba(89, 202, 37, 0.384)'
+            openModal();
+        }else if (computerScore == maxScore) {
+            para.textContent = 'Computer has won'
+            modal.style.cssText = 'background-color: rgba(202, 62, 37, 0.384)'
+            openModal();
+        }
+    }
 
 const body = document.querySelector('body');
-
-
 const modal = document.createElement('div');
-modal.classList.add('modal');
+    modal.classList.add('modal');
 
-const modalBox = document.createElement('div');
-modalBox.classList.add('modalBox');
-modal.appendChild(modalBox);
+    const modalBox = document.createElement('div');
+    modalBox.classList.add('modalBox');
+    modal.appendChild(modalBox);
 
-const h2 = document.createElement('h2');
-h2.textContent = 'Game Over';
-modalBox.appendChild(h2);
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Game Over';
+    modalBox.appendChild(h2);
 
-const para  = document.createElement('p');
-para.classList.add('gameStatus');
-para.textContent = '"Playerholder"'
-modalBox.appendChild(para);
+    const para  = document.createElement('p');
+    para.classList.add('gameStatus');
+    para.textContent = '"Playerholder"'
+    modalBox.appendChild(para);
 
-const button = document.createElement('button');
-button.textContent = 'Restart Game';
-modalBox.appendChild(button);
+    const button = document.createElement('button');
+    button.textContent = 'Restart Game';
+    modalBox.appendChild(button);
 
-button.addEventListener('click', () => restartGame());
+    button.addEventListener('click', () => restartGame());
 
 
 let openModal = () => {
